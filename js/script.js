@@ -30,7 +30,8 @@ let textButtonLeaves = document.getElementById("textButtonLeaves");
 let textButtonSnow = document.getElementById("textButtonSnow");
 
 // Adding variable for the body
-let pageBody = document.querySelector("body");
+// An array is used in order to select the first class of the body
+let pageBody = document.querySelector("body").classList[0];
 // Adding variables for rainbow text
 let rainbowArray = [
   "blueText",
@@ -47,10 +48,6 @@ let textContainer = document.querySelector(".textContainer");
 // Music functions
 // Play the appropriate music when the music button is clicked
 function playMusic() {
-  // The changing variable
-  // An array is used in order to select the first class of the body
-  pageBody = document.querySelector("body").classList[0];
-
   if (pageBody === "bubblesBody") {
     console.log("click!");
     bubblePageMusic.play();
@@ -194,17 +191,17 @@ function letterDivTransform(keyEvent) {
 
 // Textify buttons functions
 function changeBubblesBG() {
-  pageBody.classList.toggle("bubblesBodyPixel");
+  document.body.classList.toggle("bubblesBodyPixel");
   opacitySFX.play();
 }
 
 function changeLeavesBG() {
-  pageBody.classList.toggle("leavesBodyPixel");
+  document.body.classList.toggle("leavesBodyPixel");
   opacitySFX.play();
 }
 
 function changeSnowBG() {
-  pageBody.classList.toggle("snowBodyPixel");
+  document.body.classList.toggle("snowBodyPixel");
   opacitySFX.play();
 }
 
@@ -214,10 +211,12 @@ document.addEventListener("keydown", letterDivTransform);
 playMusicButton.addEventListener("click", playMusic);
 stopMusicButton.addEventListener("click", stopMusic);
 // Textify button event listeners
-if (document.querySelector("body").classList[0] === "bubblesBody") {
+if (pageBody === "bubblesBody") {
   textButtonBubbles.addEventListener("click", changeBubblesBG);
-} else if (document.querySelector("body").classList[0] === "leavesBody") {
+} else if (pageBody === "leavesBody") {
   textButtonLeaves.addEventListener("click", changeLeavesBG);
-} else if (document.querySelector("body").classList[0] === "snowBody") {
+} else if (pageBody === "snowBody") {
   textButtonSnow.addEventListener("click", changeSnowBG);
 }
+
+console.log(pageBody.classList);
