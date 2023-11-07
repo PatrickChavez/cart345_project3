@@ -24,6 +24,11 @@ opacitySFX.volume = 0.3;
 let playMusicButton = document.getElementById("playMusicButton");
 let stopMusicButton = document.getElementById("stopMusicButton");
 
+// The textify buttons
+let textButtonBubbles = document.getElementById("textButtonBubbles");
+let textButtonLeaves = document.getElementById("textButtonLeaves");
+let textButtonSnow = document.getElementById("textButtonSnow");
+
 // Adding variable for the body
 let pageBody = document.querySelector("body");
 // Adding variables for rainbow text
@@ -108,6 +113,7 @@ let updateTextColor = window.setInterval(function () {
   }
 }, 1000);
 
+// Letter transform functions
 function letterTransform(event) {
   let key = event.key;
   // For loop to select all letters
@@ -185,8 +191,33 @@ function letterDivTransform(keyEvent) {
     }
   }
 }
+
+// Textify buttons functions
+function changeBubblesBG() {
+  pageBody.classList.toggle("bubblesBodyPixel");
+  opacitySFX.play();
+}
+
+function changeLeavesBG() {
+  pageBody.classList.toggle("leavesBodyPixel");
+  opacitySFX.play();
+}
+
+function changeSnowBG() {
+  pageBody.classList.toggle("snowBodyPixel");
+  opacitySFX.play();
+}
+
 // Calling the functions
 document.addEventListener("keydown", letterTransform);
 document.addEventListener("keydown", letterDivTransform);
 playMusicButton.addEventListener("click", playMusic);
 stopMusicButton.addEventListener("click", stopMusic);
+// Textify button event listeners
+if (document.querySelector("body").classList[0] === "bubblesBody") {
+  textButtonBubbles.addEventListener("click", changeBubblesBG);
+} else if (document.querySelector("body").classList[0] === "leavesBody") {
+  textButtonLeaves.addEventListener("click", changeLeavesBG);
+} else if (document.querySelector("body").classList[0] === "snowBody") {
+  textButtonSnow.addEventListener("click", changeSnowBG);
+}

@@ -156,13 +156,28 @@ li a:active {
   background-size: cover;
 }
 
+.bubblesBodyPixel {
+  background-image: url("../assets/images/BubblesBG_Pixel.png");
+  background-size: cover;
+}
+
 .leavesBody {
   background-image: url("../assets/images/LeavesBG.jpg");
   background-size: cover;
 }
 
+.leavesBodyPixel {
+  background-image: url("../assets/images/LeavesBG_Pixel.png");
+  background-size: cover;
+}
+
 .snowBody {
   background-image: url("../assets/images/SnowBG.jpg");
+  background-size: cover;
+}
+
+.snowBodyPixel {
+  background-image: url("../assets/images/SnowBG_Pixel.png");
   background-size: cover;
 }
 
